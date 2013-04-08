@@ -24,7 +24,7 @@ $this->breadcrumbs=array(
 			</thead>
 			<tbody>
 				<tr>
-					<td><a href="<?php echo Yii::app()->request->baseUrl; ?>/result">Nestle</a></td>
+					<td><a href="<?php echo Yii::app()->request->baseUrl; ?>/site/result">Nestle</a></td>
 					<td>One Utama</td>
 					<td>20/11/2012</td>
 					<td>12/12/2012</td>
