@@ -226,4 +226,15 @@ table tr
 	  padding: 2px;
 	  font-size: 12px;
 	}
+
+	.container
+	{
+		width:300px;
+	}
+
+	.span-12
+	{
+		width:300px;
+		padding-left: 0px;
+	}
 }
