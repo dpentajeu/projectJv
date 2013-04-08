@@ -1,0 +1,112 @@
+2013/04/08 23:08:25 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "favicon.ico".' in /opt/lampp/htdocs/yii-1.1.12.b600af/framework/web/CWebApplication.php:287
+Stack trace:
+#0 /opt/lampp/htdocs/yii-1.1.12.b600af/framework/web/CWebApplication.php(142): CWebApplication->runController('favicon.ico')
+#1 /opt/lampp/htdocs/yii-1.1.12.b600af/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#2 /opt/lampp/htdocs/projectJv/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/04/08 23:08:27 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "favicon.ico".' in /opt/lampp/htdocs/yii-1.1.12.b600af/framework/web/CWebApplication.php:287
+Stack trace:
+#0 /opt/lampp/htdocs/yii-1.1.12.b600af/framework/web/CWebApplication.php(142): CWebApplication->runController('favicon.ico')
+#1 /opt/lampp/htdocs/yii-1.1.12.b600af/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#2 /opt/lampp/htdocs/projectJv/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/04/08 23:08:29 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "favicon.ico".' in /opt/lampp/htdocs/yii-1.1.12.b600af/framework/web/CWebApplication.php:287
+Stack trace:
+#0 /opt/lampp/htdocs/yii-1.1.12.b600af/framework/web/CWebApplication.php(142): CWebApplication->runController('favicon.ico')
+#1 /opt/lampp/htdocs/yii-1.1.12.b600af/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#2 /opt/lampp/htdocs/projectJv/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/04/08 23:08:29 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "favicon.ico".' in /opt/lampp/htdocs/yii-1.1.12.b600af/framework/web/CWebApplication.php:287
+Stack trace:
+#0 /opt/lampp/htdocs/yii-1.1.12.b600af/framework/web/CWebApplication.php(142): CWebApplication->runController('favicon.ico')
+#1 /opt/lampp/htdocs/yii-1.1.12.b600af/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#2 /opt/lampp/htdocs/projectJv/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/04/08 23:08:30 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "favicon.ico".' in /opt/lampp/htdocs/yii-1.1.12.b600af/framework/web/CWebApplication.php:287
+Stack trace:
+#0 /opt/lampp/htdocs/yii-1.1.12.b600af/framework/web/CWebApplication.php(142): CWebApplication->runController('favicon.ico')
+#1 /opt/lampp/htdocs/yii-1.1.12.b600af/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#2 /opt/lampp/htdocs/projectJv/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/04/08 23:08:32 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "favicon.ico".' in /opt/lampp/htdocs/yii-1.1.12.b600af/framework/web/CWebApplication.php:287
+Stack trace:
+#0 /opt/lampp/htdocs/yii-1.1.12.b600af/framework/web/CWebApplication.php(142): CWebApplication->runController('favicon.ico')
+#1 /opt/lampp/htdocs/yii-1.1.12.b600af/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#2 /opt/lampp/htdocs/projectJv/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/04/08 23:08:37 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "favicon.ico".' in /opt/lampp/htdocs/yii-1.1.12.b600af/framework/web/CWebApplication.php:287
+Stack trace:
+#0 /opt/lampp/htdocs/yii-1.1.12.b600af/framework/web/CWebApplication.php(142): CWebApplication->runController('favicon.ico')
+#1 /opt/lampp/htdocs/yii-1.1.12.b600af/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#2 /opt/lampp/htdocs/projectJv/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/04/08 23:09:09 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "favicon.ico".' in /opt/lampp/htdocs/yii-1.1.12.b600af/framework/web/CWebApplication.php:287
+Stack trace:
+#0 /opt/lampp/htdocs/yii-1.1.12.b600af/framework/web/CWebApplication.php(142): CWebApplication->runController('favicon.ico')
+#1 /opt/lampp/htdocs/yii-1.1.12.b600af/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#2 /opt/lampp/htdocs/projectJv/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/04/08 23:09:09 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "favicon.ico".' in /opt/lampp/htdocs/yii-1.1.12.b600af/framework/web/CWebApplication.php:287
+Stack trace:
+#0 /opt/lampp/htdocs/yii-1.1.12.b600af/framework/web/CWebApplication.php(142): CWebApplication->runController('favicon.ico')
+#1 /opt/lampp/htdocs/yii-1.1.12.b600af/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#2 /opt/lampp/htdocs/projectJv/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/04/08 23:09:10 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "favicon.ico".' in /opt/lampp/htdocs/yii-1.1.12.b600af/framework/web/CWebApplication.php:287
+Stack trace:
+#0 /opt/lampp/htdocs/yii-1.1.12.b600af/framework/web/CWebApplication.php(142): CWebApplication->runController('favicon.ico')
+#1 /opt/lampp/htdocs/yii-1.1.12.b600af/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#2 /opt/lampp/htdocs/projectJv/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/04/08 23:09:12 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "favicon.ico".' in /opt/lampp/htdocs/yii-1.1.12.b600af/framework/web/CWebApplication.php:287
+Stack trace:
+#0 /opt/lampp/htdocs/yii-1.1.12.b600af/framework/web/CWebApplication.php(142): CWebApplication->runController('favicon.ico')
+#1 /opt/lampp/htdocs/yii-1.1.12.b600af/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#2 /opt/lampp/htdocs/projectJv/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/04/08 23:09:13 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "favicon.ico".' in /opt/lampp/htdocs/yii-1.1.12.b600af/framework/web/CWebApplication.php:287
+Stack trace:
+#0 /opt/lampp/htdocs/yii-1.1.12.b600af/framework/web/CWebApplication.php(142): CWebApplication->runController('favicon.ico')
+#1 /opt/lampp/htdocs/yii-1.1.12.b600af/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#2 /opt/lampp/htdocs/projectJv/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/04/08 23:09:14 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "favicon.ico".' in /opt/lampp/htdocs/yii-1.1.12.b600af/framework/web/CWebApplication.php:287
+Stack trace:
+#0 /opt/lampp/htdocs/yii-1.1.12.b600af/framework/web/CWebApplication.php(142): CWebApplication->runController('favicon.ico')
+#1 /opt/lampp/htdocs/yii-1.1.12.b600af/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#2 /opt/lampp/htdocs/projectJv/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/04/08 23:09:15 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "favicon.ico".' in /opt/lampp/htdocs/yii-1.1.12.b600af/framework/web/CWebApplication.php:287
+Stack trace:
+#0 /opt/lampp/htdocs/yii-1.1.12.b600af/framework/web/CWebApplication.php(142): CWebApplication->runController('favicon.ico')
+#1 /opt/lampp/htdocs/yii-1.1.12.b600af/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#2 /opt/lampp/htdocs/projectJv/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
