@@ -12,7 +12,7 @@
 	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/ie.css" media="screen, projection" />
 	<![endif]-->
 
-	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/12.css" />
+	<!-- <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/16.css" /> -->
 	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/text.css" />
 	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/main.css" />
 	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/form.css" />
@@ -22,19 +22,20 @@
 
 <body>
 
+<div role="main">
 <div class="container_16">
-
 	<div class="row grid_16" id="line">
 		<div>
-			<h1 class="logo" style="margin-bottom: 0px;"><a href="#"><img src="<?php echo Yii::app()->request->baseUrl; ?>/images/logo.png" alt=""></a></h1>
+			<h1 class="logo" style="margin-bottom: 0px;padding: 5px;"><a href="#"><img src="<?php echo Yii::app()->request->baseUrl; ?>/images/groupm_logo.jpg" alt=""></a></h1>
 		</div>
 
 		<div id="mainmenu">
 			<?php $this->widget('zii.widgets.CMenu',array(
 				'items'=>array(
 					array('label'=>'Home', 'url'=>array('/site/index')),
-					array('label'=>'About', 'url'=>array('/site/page', 'view'=>'about')),
-					array('label'=>'Contact', 'url'=>array('/site/contact')),
+					array('label'=>'About', 'url'=>array('/site/page', 'view'=>'about'), 'visible'=>Yii::app()->user->isGuest),
+					array('label'=>'Contact', 'url'=>array('/site/contact'), 'visible'=>Yii::app()->user->isGuest),
+					array('label'=>'Campaign', 'url'=>array('/site/campaign'), 'visible'=>!Yii::app()->user->isGuest),
 					array('label'=>'Login', 'url'=>array('/site/login'), 'visible'=>Yii::app()->user->isGuest),
 					array('label'=>'Logout ('.Yii::app()->user->name.')', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest)
 				),
@@ -65,6 +66,6 @@
 
 	<div class="clear"></div>
 </div><!-- page -->
-
+</div>
 </body>
 </html>
