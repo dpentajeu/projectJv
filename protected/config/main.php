@@ -47,6 +47,40 @@ return array(
 				'<controller:\w+>/<action:\w+>'=>'<controller>/<action>',
 			),
 		),
+
+		'clientScript'=>array(
+			'packages'=>array(
+				'jui'=>array(
+					'baseUrl'=>'',
+					'css'=>array(
+						'css/jquery-ui-1.9.2.custom.min.css',
+					),
+					'depends'=>array('jquery.ui'),
+				),
+				'form-wizard'=>array(
+					'baseUrl'=>'',
+					'css'=>array(
+						'css/form-wizard.css',
+					),
+					'js'=>array(
+						'js/jquery.dform-1.0.1.min.js',
+						'js/form-wizard.js',
+					),
+					'depends'=>array('jui'),
+				),
+				'tag-it'=>array(
+					'baseUrl'=>'',
+					'css'=>array(
+						'css/jquery.tagit.css',
+						'css/tagit.ui-zendesk.css',
+					),
+					'js'=>array(
+						'js/tag-it.min.js',
+					),
+					'depends'=>array('jquery.ui'),
+				),
+			),
+		),
 		
 		'db'=>array(
 			'connectionString' => 'sqlite:'.dirname(__FILE__).'/../data/testdrive.db',
