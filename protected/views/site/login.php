@@ -10,7 +10,7 @@ $this->breadcrumbs=array(
 ?>
 
 <div class="grid_16">
-	<h1>Login</h1>
+	<h2>Login</h2>
 
 	<p>Please fill out the following form with your login credentials:</p>
 

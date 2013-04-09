@@ -53,7 +53,7 @@ $this->breadcrumbs=array(
 
 	<p>
 		<div class="buttons">
-			<a href="#">Add new campaign</a>
+			<a href="<?php echo Yii::app()->request->baseUrl; ?>/site/createcampaign">Add new campaign</a>
 		</div>
 	</p>
 </div>

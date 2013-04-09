@@ -10,7 +10,7 @@ $this->breadcrumbs=array(
 ?>
 
 <div class="grid_16">
-<h1>Contact Us</h1>
+<h2>Contact Us</h2>
 
 <?php if(Yii::app()->user->hasFlash('contact')): ?>
 
@@ -37,26 +37,26 @@ If you have business inquiries or other questions, please fill out the following
 	<?php echo $form->errorSummary($model); ?>
 
 	<div class="row">
-		<?php echo $form->labelEx($model,'name'); ?>
 		<?php echo $form->textField($model,'name'); ?>
+		<?php echo $form->labelEx($model,'name'); ?>
 		<?php echo $form->error($model,'name'); ?>
 	</div>
 
 	<div class="row">
-		<?php echo $form->labelEx($model,'email'); ?>
 		<?php echo $form->textField($model,'email'); ?>
+		<?php echo $form->labelEx($model,'email'); ?>
 		<?php echo $form->error($model,'email'); ?>
 	</div>
 
 	<div class="row">
-		<?php echo $form->labelEx($model,'subject'); ?>
 		<?php echo $form->textField($model,'subject',array('size'=>60,'maxlength'=>128)); ?>
+		<?php echo $form->labelEx($model,'subject'); ?>
 		<?php echo $form->error($model,'subject'); ?>
 	</div>
 
 	<div class="row">
-		<?php echo $form->labelEx($model,'body'); ?>
 		<?php echo $form->textArea($model,'body',array('rows'=>6, 'cols'=>50)); ?>
+		<?php echo $form->labelEx($model,'body'); ?>
 		<?php echo $form->error($model,'body'); ?>
 	</div>
 

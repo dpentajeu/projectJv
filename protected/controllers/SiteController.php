@@ -112,6 +112,12 @@ class SiteController extends Controller
 		$this->render('campaign');
 	}
 
+	public function actionCreatecampaign()
+	{
+		$model=new CampaignForm;
+		$this->render('createcampaign', array('model'=>$model));
+	}
+
 	public function actionResult()
 	{
 		$this->render('result');

@@ -34,8 +34,14 @@
  * @license http://www.yiiframework.com/license/
  */
 
+ @font-face {
+  font-family: "default";
+  src: url('sheep-sans.ttf') format("truetype");
+}
+
 div.form
 {
+	border-bottom: 1px solid #333;
 }
 
 div.form input,
@@ -48,8 +54,9 @@ div.form select
 div.form input,
 div.form textarea
 {
-	min-height: 20px;
+	min-height: 25px;
 	min-width: 200px;
+	border: 1px solid #3F9090;
 }
 
 div.form fieldset
@@ -64,13 +71,14 @@ div.form label
 {
 	font-weight: bold;
 	font-size: 0.9em;
-	display: block;
 	font-size: 14px;
 }
 
 div.form .row
 {
 	margin: 5px 0;
+	padding-top: 5px;
+	padding-left: 5px;
 }
 
 div.form .hint
@@ -105,7 +113,6 @@ div.form textarea.error,
 div.form select.error
 {
 	background: #FEE;
-	border-color: #C00;
 }
 
 div.form div.success input,
@@ -153,7 +160,7 @@ div.wide.form label
 	margin-right: 10px;
 	position: relative;
 	text-align: right;
-	width: 100px;	
+	width: 100px;		
 }
 
 div.wide.form .row
@@ -203,15 +210,29 @@ table td
 	font-size: 14px;	
 }
 
+table td:first-child
+{
+	background: #eee;
+	/*border-right: 1px solid #58B8D5;*/
+}
+
 table td a
 {
 	text-decoration: none;
 	color: #58B8D5;
 }
 
-table tr
+#image_div img
 {
-	border-bottom: 1px dotted #eee;
+	width: 100%;
+	height: 250px;
+}
+
+h2
+{
+	color: #fff;
+	background: #333;
+	padding: 5px;
 }
 
 @media only screen and (min-width: 480px) and (max-width: 767px) {
@@ -232,9 +253,36 @@ table tr
 		width:300px;
 	}
 
-	.span-12
+	.span-12, .span-8
 	{
 		width:300px;
 		padding-left: 0px;
+		margin-bottom: 10px;
+	}
+}
+
+@media only screen and (min-width: 320px) and (max-width: 480px) {
+	table th
+	{
+	  padding: 2px;
+	  font-size: 12px;
+	}
+
+	table td
+	{
+	  padding: 1px;
+	  font-size: 10px;
+	}
+
+	.container
+	{
+		width:285px;
+	}
+
+	.span-12, .span-8
+	{
+		width:285px;
+		padding-left: 0px;
+		margin-bottom: 10px;
 	}
 }
