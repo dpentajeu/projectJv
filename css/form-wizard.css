@@ -1,0 +1,15 @@
+form .row {
+	margin: 5px;
+}
+
+	form .row input {
+		border: 1px solid black;
+		padding: 5px;
+	}
+
+	form .row span {
+		margin-left: 10px;
+		padding: 5px;
+		color: black;
+		border: 1px dashed gray;
+	}
