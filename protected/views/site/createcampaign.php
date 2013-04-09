@@ -7,6 +7,12 @@ $this->pageTitle=Yii::app()->name . ' - Contact Us';
 $this->breadcrumbs=array(
 	'Create Campaign',
 );
+$cs = Yii::app()->getClientScript();
+$cs->registerPackage('jui');
+$cs->registerScript('date', "
+	$('#CampaignForm_startDate').datepicker();
+	$('#CampaignForm_endDate').datepicker();
+	");
 ?>
 
 <div class="grid_16">

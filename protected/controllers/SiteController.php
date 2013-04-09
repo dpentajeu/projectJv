@@ -114,8 +114,14 @@ class SiteController extends Controller
 
 	public function actionCreatecampaign()
 	{
-		$model=new CampaignForm;
-		$this->render('createcampaign', array('model'=>$model));
+		if (!isset($_GET['step'])) {
+			$model=new CampaignForm;
+			$this->render('createcampaign', array('model'=>$model));
+		} else if ($_GET['step'] == '2') {
+			$this->render('step2');
+		} else if ($_GET['step'] == '3') {
+			$this->render('step3');
+		}
 	}
 
 	public function actionResult()
