@@ -44,7 +44,7 @@ $this->breadcrumbs=array(
           var selectedItem = chart.getSelection()[0];
           if (selectedItem) {
             var val = data.getValue(selectedItem.row, 0);
-            alert('User selected ' + val);
+            alert('Data for ' + val);
           }
         }
 

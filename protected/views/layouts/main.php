@@ -26,7 +26,7 @@
 <div class="container_16">
 	<div class="row grid_16" id="line">
 		<div>
-			<h1 class="logo" style="margin-bottom: 0px;padding: 5px;"><a href="#"><img src="<?php echo Yii::app()->request->baseUrl; ?>/images/groupm_logo.jpg" alt=""></a></h1>
+			<h1 class="logo" style="margin-bottom: 0px;"><span>Listo</span></h1>
 		</div>
 
 		<div id="mainmenu">
@@ -60,7 +60,7 @@
 	<div class="clear"></div>
 
 	<div id="footer" class="grid_16">
-		Copyright &copy; <?php echo date('Y'); ?> by GroupM.<br/>
+		Copyright &copy; <?php echo date('Y'); ?> by Listo.<br/>
 		All Rights Reserved.
 	</div><!-- footer -->
 

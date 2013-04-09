@@ -116,6 +116,13 @@ class SiteController extends Controller
 	{
 		if (!isset($_GET['step'])) {
 			$model=new CampaignForm;
+
+			if($_POST)
+			{
+				$this->render('step2');
+				Yii::app()->end();
+			}
+
 			$this->render('createcampaign', array('model'=>$model));
 		} else if ($_GET['step'] == '2') {
 			$this->render('step2');

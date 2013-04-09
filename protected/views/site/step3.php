@@ -12,7 +12,14 @@ $cs->registerScript('tag-it', "
 ?>
 <div>
 	<form>
-		<h1>Tagging</h1>
+		<h1>Add Tags</h1>
+		<span>Press enter/tab to create a tag.</span>
 		<ul id="tags"></ul>
 	</form>
+
+	<p>
+		<div class="buttons">
+			<a href="<?php echo Yii::app()->request->baseUrl; ?>/site/campaign">Complete</a>
+		</div>
+	</p>
 </div>
