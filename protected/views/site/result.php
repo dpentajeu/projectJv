@@ -5,9 +5,17 @@ $this->pageTitle=Yii::app()->name;
 $this->breadcrumbs=array(
 	'Result',
 );
+
+$cs = Yii::app()->getClientScript();
+$cs->registerScript('',"
+  $('#example').organicTabs();
+  ");
 ?>
  <script type="text/javascript" src="https://www.google.com/jsapi"></script>
-    <script type="text/javascript">
+ <script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/js/organictabs.jquery.js"></script>
+ <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/tabstyle.css" />
+
+    <script type="text/javascript">     
 
       // Load the Visualization API and the piechart package.
       google.load('visualization', '1.0', {'packages':['corechart']});
@@ -35,7 +43,7 @@ $this->breadcrumbs=array(
 
         // Set chart options
         var options = {'title':'Demographic of Customer Who Is Using Product X?',
-                       'width':400,
+                       'width':700,
                        'height':400};
 
         // Instantiate and draw our chart, passing in some options.
@@ -63,7 +71,7 @@ $this->breadcrumbs=array(
 
         var options = {
           title: 'Daily Performance of Product X Campaign',
-          'width':400,
+          'width':700,
           'height':400
         };
 
@@ -76,11 +84,32 @@ $this->breadcrumbs=array(
 	<h1>Result</h1>
 	<h3 style="padding-bottom: 10px; border-bottom: 2px solid #eee">Campaign X</h3>
 	<div class="container">
-		<div class="span-12">
-			<div id="chart_div"></div>
+		<div class="span-2">
+			
 		</div>
-		<div class="span-12 last">
-			<div id="line_div"></div>
+    <div class="span-20">
+      <div id="example">
+      
+      <ul class="nav">
+                  <li class="nav-one"><a href="#pie" class="current">Chart</a></li>
+                  <li class="nav-two"><a href="#line">Graph</a></li>
+      </ul>
+    
+      <div class="list-wrap">
+    
+      <ul id="pie">
+        <div id="chart_div"></div>
+      </ul>
+       
+       <ul id="line" class="hide">
+        <div id="line_div"></div>
+       </ul>
+       
+      </div>    
+    </div>
+    </div>
+		<div class="span-2 last">
+			
 		</div>
 	</div>
 	<div class="container">
