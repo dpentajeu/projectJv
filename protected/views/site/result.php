@@ -22,7 +22,7 @@ $cs->registerScript('',"
 
       // Set a callback to run when the Google Visualization API is loaded.
       google.setOnLoadCallback(drawChart);
-      google.setOnLoadCallback(drawGraph);
+      // google.setOnLoadCallback(drawGraph);
 
       // Callback that creates and populates a data table,
       // instantiates the pie chart, passes in the data and
@@ -82,7 +82,7 @@ $cs->registerScript('',"
 
 <div class="grid_16">
 	<h1>Result</h1>
-	<h3 style="padding-bottom: 10px; border-bottom: 2px solid #eee">Campaign X</h3>
+	<h3 style="padding-bottom: 10px; border-bottom: 2px solid #eee">Campaign X <br/>Venue: One Utama &nbsp&nbsp Start Date: 20/11/2012 &nbsp&nbsp End Date: 12/12/2012</h3>  
 	<div class="container">
 		<div class="span-2">
 			
@@ -92,7 +92,7 @@ $cs->registerScript('',"
       
       <ul class="nav">
                   <li class="nav-one"><a href="#pie" class="current">Chart</a></li>
-                  <li class="nav-two"><a href="#line">Graph</a></li>
+                  <li class="nav-two"><a href="#line">Map</a></li>
       </ul>
     
       <div class="list-wrap">
@@ -102,7 +102,9 @@ $cs->registerScript('',"
       </ul>
        
        <ul id="line" class="hide">
-        <div id="line_div"></div>
+        <div id="line_div">
+          <iframe width="730" height="400" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=+&amp;q=cyberjaya&amp;ie=UTF8&amp;hq=&amp;hnear=Cyberjaya,+Selangor,+Malaysia&amp;ll=2.925088,101.657381&amp;spn=0.005957,0.009871&amp;t=m&amp;z=14&amp;output=embed"></iframe>
+        </div>
        </ul>
        
       </div>    

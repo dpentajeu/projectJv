@@ -41,7 +41,7 @@
 
 div.form
 {
-	border-bottom: 1px solid #333;
+	/*border-bottom: 1px solid #333;*/
 }
 
 div.form input,
@@ -179,7 +179,7 @@ div.buttons input
 	min-height: 30px;
 	background: #F9F9F9;
 	border: 1px solid #CCC;
-	color: #58B8D5;
+	color: #2B9FD9;
 	font-size: 15px;
 }
 
@@ -188,7 +188,7 @@ div.buttons button
 	min-height: 30px;
 	background: #F9F9F9;
 	border: 1px solid #CCC;
-	color: #58B8D5;
+	color: #2B9FD9;
 	font-size: 15px;
 }
 
@@ -197,10 +197,24 @@ div.buttons a
 	min-height: 30px;
 	background: #F9F9F9;
 	border: 1px solid #CCC;
-	color: #58B8D5;
+	color: #2B9FD9;
 	font-size: 15px;
 	text-decoration: none;
 	padding: 10px;
+}
+
+div.buttons a.next
+{
+	min-height: 25px;
+	background: #2B9FD9;
+	border: 1px solid #2B9FD9;
+	color: #fff;
+	font-size: 15px;
+	text-decoration: none;
+	padding: 8px;
+	padding-left: 50px;
+	padding-right: 50px;
+	min-width: 150px;
 }
 
 table th
@@ -241,7 +255,13 @@ h2
 {
 	color: #fff;
 	background: #333;
-	padding: 5px;
+	padding: 6px;
+	-webkit-border-top-left-radius:6px;
+	-webkit-border-top-right-radius:6px;
+	-moz-border-top-left-radius:6px;
+	-moz-border-top-right-radius:6px;
+	border-top-left-radius:6px;
+	border-top-right-radius:6px;
 }
 
 h1

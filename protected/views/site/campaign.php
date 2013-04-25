@@ -18,8 +18,7 @@ $this->breadcrumbs=array(
 					<th>Venue</th>
 					<th>Start date</th>
 					<th>End date</th>
-					<th>Remarks</th>
-					<th>Budget (RM)</th>
+					<th>Remarks</th>					
 				</tr>
 			</thead>
 			<tbody>
@@ -29,7 +28,6 @@ $this->breadcrumbs=array(
 					<td>20/11/2012</td>
 					<td>12/12/2012</td>
 					<td>Special campaign.</td>
-					<td>5000</td>
 				</tr>
 				<tr>
 					<td><a href="<?php echo Yii::app()->request->baseUrl; ?>/site/result">Nestle</a></td>
@@ -37,7 +35,6 @@ $this->breadcrumbs=array(
 					<td>20/11/2012</td>
 					<td>12/12/2012</td>
 					<td>-</td>
-					<td>5000</td>
 				</tr>
 				<tr>
 					<td><a href="<?php echo Yii::app()->request->baseUrl; ?>/site/result">Nestle</a></td>
@@ -45,7 +42,6 @@ $this->breadcrumbs=array(
 					<td>20/11/2012</td>
 					<td>12/12/2012</td>
 					<td>-</td>
-					<td>5000</td>
 				</tr>
 			</tbody>
 		</table>

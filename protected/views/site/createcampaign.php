@@ -60,12 +60,6 @@ $cs->registerScript('date', "
 		<?php echo $form->error($model,'remarks'); ?>
 	</div>
 
-	<div class="row">
-		<?php echo $form->textField($model,'budget'); ?>
-		<?php echo $form->labelEx($model,'budget'); ?>
-		<?php echo $form->error($model,'budget'); ?>
-	</div>
-
 	<div class="row buttons">
 		<?php echo CHtml::submitButton('Next'); ?>
 	</div>
