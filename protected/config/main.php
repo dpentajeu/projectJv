@@ -114,6 +114,11 @@ return array(
 				*/
 			),
 		),
+
+		'session'=>array(
+			'sessionName'=>'CampaignForm',
+			'cookieMode'=>'only',
+		),
 	),
 
 	// application-level parameters that can be accessed

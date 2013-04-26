@@ -8,6 +8,8 @@ class CampaignForm extends CFormModel
 	public $endDate;
 	public $remarks;
 	public $budget;
+	public $wizard;
+	public $tags;
 
 	/**
 	 * Declares the validation rules.
@@ -16,7 +18,8 @@ class CampaignForm extends CFormModel
 	{
 		return array(
 			array('name, venue, startDate, budget', 'required'),
-			array('startDate, endDate', 'date')
+			array('startDate, endDate', 'date'),
+			array('wizard, tags', 'safe'),
 		);
 	}
 

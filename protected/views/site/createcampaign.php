@@ -22,6 +22,7 @@ $cs->registerScript('date', "
 
 <?php $form=$this->beginWidget('CActiveForm', array(
 	'id'=>'contact-form',
+	'action'=>'?step=2',
 	'enableClientValidation'=>true,
 	'clientOptions'=>array(
 		'validateOnSubmit'=>true,

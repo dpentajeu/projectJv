@@ -4,15 +4,15 @@ $(document).ready(function() {
 
 	// initialize button onClick
 	(function(element) {
-		btn = $(element).find('button');
+		var btn = $(element).find('button');
 		btn.click(function(e) {
-			console.log($(this).data().type);
 			type = $(this).data().type;
 			obj = { type: type };
 			if (type === 'datepicker') {
 				obj.type = 'text';
 				obj.datepicker = {};
 			}
+
 			form.dform('append', {
 				type: 'container',
 				class: 'row',
@@ -27,7 +27,6 @@ $(document).ready(function() {
 				],
 			});
 		});
-		console.log(btn.length);
 	}(wizard));
 
 	form.dform({ method: 'post' });

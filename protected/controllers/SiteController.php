@@ -116,20 +116,24 @@ class SiteController extends Controller
 
 	public function actionCreatecampaign()
 	{
+		if (Yii::app()->session['campaign'] instanceof CampaignForm)
+			$model = Yii::app()->session['campaign'];
+		else {
+			Yii::app()->session['campaign'] = new CampaignForm;
+			$model = Yii::app()->session['campaign'];
+		}
+
 		if (!isset($_GET['step'])) {
-			$model=new CampaignForm;
-
-			if($_POST)
-			{
-				$this->render('step2');
-				Yii::app()->end();
-			}
-
 			$this->render('createcampaign', array('model'=>$model));
 		} else if ($_GET['step'] == '2') {
+			$model->attributes = $_POST['CampaignForm'];
 			$this->render('step2');
 		} else if ($_GET['step'] == '3') {
+			$model->wizard = $_POST['wizard'];
 			$this->render('step3');
+		} else if ($_GET['step'] == '4') {
+			$model->tags = $_POST['tags'];
+			$this->render('step4', array('model'=>$model));
 		}
 	}
 
