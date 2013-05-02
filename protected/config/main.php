@@ -32,6 +32,10 @@ return array(
 
 	// application components
 	'components'=>array(
+		'curl'=>array(
+			'class'=>'ext.curl-master.Curl',
+		),
+
 		'user'=>array(
 			// enable cookie-based authentication
 			'allowAutoLogin'=>true,
