@@ -22,27 +22,15 @@ $this->breadcrumbs=array(
 				</tr>
 			</thead>
 			<tbody>
-				<tr>
-					<td><a href="<?php echo Yii::app()->request->baseUrl; ?>/site/result">Nestle</a></td>
-					<td>One Utama</td>
-					<td>20/11/2012</td>
-					<td>12/12/2012</td>
-					<td>Special campaign.</td>
-				</tr>
-				<tr>
-					<td><a href="<?php echo Yii::app()->request->baseUrl; ?>/site/result">Nestle</a></td>
-					<td>One Utama</td>
-					<td>20/11/2012</td>
-					<td>12/12/2012</td>
-					<td>-</td>
-				</tr>
-				<tr>
-					<td><a href="<?php echo Yii::app()->request->baseUrl; ?>/site/result">Nestle</a></td>
-					<td>One Utama</td>
-					<td>20/11/2012</td>
-					<td>12/12/2012</td>
-					<td>-</td>
-				</tr>
+			<?php foreach ($list['Data'] as $campaign): ?>
+			<tr>
+				<td><?php echo CHtml::link($campaign['EventName'], array('/site/result')); ?></td>
+				<td><?php echo $campaign['EventVenue']; ?></td>
+				<td><?php echo $campaign['EventStart']; ?></td>
+				<td><?php echo $campaign['EventEnd']; ?></td>
+				<td></td>
+			</tr>
+			<?php endforeach; ?>
 			</tbody>
 		</table>
 	</p>

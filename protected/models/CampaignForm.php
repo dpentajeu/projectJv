@@ -33,4 +33,15 @@ class CampaignForm extends CFormModel
 		return array(
 		);
 	}
+
+	public function apphbPostData()
+	{
+		return json_encode(array(
+			'myEvent' => array(
+				'EventName' => $this->name,
+				'EventVenue' => $this->venue,
+				'EventStatus' => 3,
+				),
+			));
+	}
 }

@@ -111,7 +111,10 @@ class SiteController extends Controller
 
 	public function actionCampaign()
 	{
-		$this->render('campaign');
+		$list = Yii::app()->curl->get("http://listoprototype.apphb.com/ListoEvent.svc/GetEvents");
+		$list = json_decode($list, true);
+
+		$this->render('campaign', array('list'=>$list));
 	}
 
 	public function actionCreatecampaign()
@@ -133,6 +136,8 @@ class SiteController extends Controller
 			$this->render('step3');
 		} else if ($_GET['step'] == '4') {
 			$model->tags = $_POST['tags'];
+			$url = "http://listoprototype.apphb.com/ListoEvent.svc/CreateEvent";
+			Yii::app()->curl->post($url, $model->apphbPostData());
 			$this->render('step4', array('model'=>$model));
 		}
 	}
