@@ -19,15 +19,35 @@ class UserIdentity extends CUserIdentity
 	{
 		$users=array(
 			// username => password
-			'demo'=>'demo',
+			// 'demo'=>'demo',
 			'admin'=>'admin',
 		);
-		if(!isset($users[$this->username]))
-			$this->errorCode=self::ERROR_USERNAME_INVALID;
-		else if($users[$this->username]!==$this->password)
+		if(!isset($users[$this->username])) {
+			$url = "http://listoprototype.apphb.com/ListoUser.svc/LoginCustomer";
+			try {
+				$data = array(
+					'UserName'=>$this->username,
+					'UserPassword'=>$this->password,
+					);
+				$curl = Yii::app()->curl;
+				$curl->setOption(CURLOPT_HTTPHEADER, array("Content-Type: application/json"));
+				$data = $curl->post($url, json_encode($data));
+				$data = json_decode($data, true);
+				if (!isset($data['Data']))
+					throw new Exception("Login page error");
+
+				if (!$data['Data'])
+					$this->errorCode=self::ERROR_USERNAME_INVALID;
+				else
+					$this->errorCode=self::ERROR_NONE;
+			} catch (Exception $e) {
+				throw new CHttpException($e->getMessage());
+			}
+		} else if($users[$this->username]!==$this->password)
 			$this->errorCode=self::ERROR_PASSWORD_INVALID;
 		else
 			$this->errorCode=self::ERROR_NONE;
+
 		return !$this->errorCode;
 	}
 }

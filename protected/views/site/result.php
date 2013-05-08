@@ -1,16 +1,14 @@
 <?php
 /* @var $this SiteController */
 
-$this->pageTitle=Yii::app()->name;
 $this->breadcrumbs=array(
 	'Result',
 );
 
 $cs = Yii::app()->getClientScript();
 $baseUrl = Yii::app()->request->baseUrl;
-$cs->registerCssFile("{$baseUrl}/css/tabstyle.css");
+$cs->registerPackage('organic-tab');
 $cs->registerScriptFile("https://www.google.com/jsapi");
-$cs->registerScriptFile("{$baseUrl}/js/organictabs.jquery.js");
 $cs->registerScript('',"
 	$('#example').organicTabs();
 	");
@@ -96,13 +94,12 @@ $cs->registerScript('',"
 					<ul id="pie">
 						<div id="chart_div"></div>
 					</ul>
-
 					<ul id="line" class="hide">
 						<div id="line_div">
 							<iframe width="730" height="400" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=+&amp;q=cyberjaya&amp;ie=UTF8&amp;hq=&amp;hnear=Cyberjaya,+Selangor,+Malaysia&amp;ll=2.925088,101.657381&amp;spn=0.005957,0.009871&amp;t=m&amp;z=14&amp;output=embed"></iframe>
 						</div>
 					</ul>
-				</div>    
+				</div>
 			</div>
 		</div>
 		<div class="span-2 last"></div>

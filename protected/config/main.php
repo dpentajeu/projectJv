@@ -83,6 +83,12 @@ return array(
 					),
 					'depends'=>array('jquery.ui'),
 				),
+				'organic-tab'=>array(
+					'baseUrl'=>'',
+					'css'=>array('css/tabstyle.css'),
+					'js'=>array('js/organictabs.jquery.js'),
+					'depends'=>array('jquery'),
+				),
 			),
 		),
 		

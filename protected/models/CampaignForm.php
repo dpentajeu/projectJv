@@ -34,15 +34,38 @@ class CampaignForm extends CFormModel
 		);
 	}
 
-	public function apphbPostData()
+	public function createEventData()
 	{
-		return json_encode(array(
+		return array(
 			'myEvent' => array(
 				'EventName' => $this->name,
 				'EventVenue' => $this->venue,
 				'EventStatus' => 3,
 				),
-			));
+			);
+	}
+
+	public function createFormData()
+	{
+		return array(
+			'myFormBuilder' => array(
+				'FormName' => $this->form,
+				'FormInput' => 'First Name|Last Name',
+				'FormInputType' => 'Text|Text',
+				'AuthorComID' => '0B4254C4-0BEF-4642-8CAB-CF9B51A6EFAC',
+				),
+			);
+	}
+
+	public function createTagsData()
+	{
+		$tags = array();
+		foreach ($this->tags as $t)
+			$tags[] = array('TagName' => $t);
+		return array(
+			'EventID' => '7',
+			'Tags' => $tags,
+			);
 	}
 
 	public static function getSessionInstance($name)

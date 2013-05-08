@@ -2,7 +2,7 @@
 	 Organic Tabs
 	 by Chris Coyier
 	 http://css-tricks.com
-*/
+
 
 * { margin: 0; padding: 0; }
 body { font: 12px Georgia, serif; }
@@ -12,7 +12,7 @@ a:focus { outline: 0; }
 p { font-size: 15px; margin: 0 0 20px 0; }
 #page-wrap { width: 440px; margin: 80px auto; }
 h1 { font: bold 40px Sans-Serif; margin: 0 0 20px 0; }
-
+*/
 /* Generic Utility */
 .hide { position: absolute; top: -9999px; left: -9999px; }
 
@@ -24,8 +24,8 @@ h1 { font: bold 40px Sans-Serif; margin: 0 0 20px 0; }
 #example .nav { overflow: hidden; margin: 0 0 10px 0; }
 #example .nav li { width: 97px; float: left; margin: 0 10px 0 0; }
 #example .nav li.last { margin-right: 0; }
-#example .nav li a { display: block; padding: 5px; background: #959290; color: white; font-size: 14px; text-align: center; border: 0; }
-#example .nav li a:hover { background-color: #111; }
+#example .nav li a { display: block; padding: 5px; background: #959290; color: white; font-size: 14px; text-align: center; border: 0; text-decoration: none; }
+#example .nav li a:hover { background-color: #111; text-decoration: none; }
 
 #example ul { list-style: none; }
 #example ul li a { display: block; border-bottom: 1px solid #666; padding: 4px; color: #666; }
@@ -48,10 +48,10 @@ h1 { font: bold 40px Sans-Serif; margin: 0 0 20px 0; }
 #example-two ul li a:hover { background: #333; color: white; }
 #example-two ul li:last-child a { border: none; }
 
-#example-two .nav { overflow: hidden; }
+#example-two .nav { overflow: hidden; margin-bottom: 0px; }
 #example-two .nav li { width: 97px; float: left; margin: 0 10px 0 0; }
 #example-two .nav li.last { margin-right: 0; }
-#example-two .nav li a { display: block; padding: 5px; background: #666; color: white; font-size: 10px; text-align: center; border: 0; }
+#example-two .nav li a { display: block; padding: 5px; background: #666; color: white; font-size: 14px; text-align: center; border: 0; text-decoration: none; }
 
 #example-two li a.current,#example-two li a.current:hover { background-color: #eee !important; color: black; }
 #example-two .nav li a:hover, #example-two .nav li a:focus { background: #999;}

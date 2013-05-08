@@ -1,5 +1,6 @@
 <?php
 $cs = Yii::app()->getClientScript();
+$cs->registerPackage('form-wizard');
 $cs->registerPackage('tag-it');
 $cs->registerScript('tag-it', "
 	$('#tags').tagit();
