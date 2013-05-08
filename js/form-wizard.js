@@ -17,13 +17,13 @@ $(document).ready(function() {
 				type: 'container',
 				class: 'row',
 				html: [
-					obj,
 					{
 						type: 'span',
 						html: 'insert label name',
 						class: 'form-label',
 						contenteditable: true,
 					},
+					obj,
 				],
 			});
 		});

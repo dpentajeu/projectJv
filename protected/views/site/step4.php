@@ -20,7 +20,7 @@ $cs->registerCss('tag-it', "
 <div class="container">
 	<h2>Congratulation! Your campaign has been created.</h2>
 	<div class="span-12">
-		<h2 style="margin-bottom:0;">Sample Form</h2>
+		<h2 style="margin-bottom:0;"><?php echo $model->form; ?></h2>
 		<form style='background:#eee'>
 			<?php echo $model->wizard; ?>
 		</form>
@@ -36,7 +36,7 @@ $cs->registerCss('tag-it', "
 	</div>
 
 	<div class="buttons">
-		<a href="<?php echo Yii::app()->request->baseUrl; ?>/site/campaign" class="next">All Campaign</a>
+		<a href="<?php echo $this->createUrl('site/campaign'); ?>" class="next">All Campaign</a>
 	</div>
 
 </div>

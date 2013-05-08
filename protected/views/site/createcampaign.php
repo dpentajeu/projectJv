@@ -31,7 +31,13 @@ $cs->registerScript('date', "
 
 	<?php echo $form->errorSummary($model); ?>
 
-	<div class="row">		
+	<div class="row">
+		<?php echo $form->textField($model,'form'); ?>
+		<?php echo $form->labelEx($model,'form'); ?>
+		<?php echo $form->error($model,'form'); ?>
+	</div>
+
+	<div class="row">
 		<?php echo $form->textField($model,'name'); ?>
 		<?php echo $form->labelEx($model,'name'); ?>
 		<?php echo $form->error($model,'name'); ?>
@@ -53,12 +59,6 @@ $cs->registerScript('date', "
 		<?php echo $form->textField($model,'endDate'); ?>
 		<?php echo $form->labelEx($model,'endDate'); ?>
 		<?php echo $form->error($model,'endDate'); ?>
-	</div>
-
-	<div class="row">
-		<?php echo $form->textField($model,'remarks'); ?>
-		<?php echo $form->labelEx($model,'remarks'); ?>
-		<?php echo $form->error($model,'remarks'); ?>
 	</div>
 
 	<div class="row buttons">

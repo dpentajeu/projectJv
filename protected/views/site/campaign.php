@@ -18,7 +18,7 @@ $this->breadcrumbs=array(
 					<th>Venue</th>
 					<th>Start date</th>
 					<th>End date</th>
-					<th>Remarks</th>					
+					<th>Status</th>
 				</tr>
 			</thead>
 			<tbody>

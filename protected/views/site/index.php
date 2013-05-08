@@ -5,7 +5,7 @@ $this->pageTitle=Yii::app()->name;
 ?>
 
 <div class="grid_16">
-	<h1 style="color:#2B9FD9; text-align: center">Join our campaign and win freebies.</h1>
+	<h1 style="color:#2B9FD9; text-align: center">Listo - Simply Segment</h1>
 
 	<div class="container">
 		<div class="span-8">
@@ -55,8 +55,3 @@ $this->pageTitle=Yii::app()->name;
 		</div>		
 	</div>
 </div>
-<div class="container">
-			<h1 style="color:#3670B7; text-align: center; font-size: 18px">
-				Quisque sed bibendum turpis. Cras eu felis sed quam accumsan elementum. Cras laoreet lacus tortor, ac cursus dui. Phasellus tortor erat, aliquam in tempus vel, ultricies sit amet augue. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam sit amet sapien id ipsum vestibulum vulputate. Vestibulum sodales tincidunt magna non iaculis. Nam dapibus consequat convallis. Phasellus semper felis congue diam interdum varius.
-			</h1>
-		</div>

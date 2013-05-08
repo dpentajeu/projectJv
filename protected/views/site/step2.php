@@ -11,7 +11,7 @@ $cs->registerScript('next', "
 ?>
 <div class="container">
 <div class="span-12">
-	<h2>Sample Form</h2>
+	<h2><?php echo $model->form; ?></h2>
 	<form name='wizard' action="?step=3" style='background:#eee'></form>
 </div>
 

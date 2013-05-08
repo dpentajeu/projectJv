@@ -2,11 +2,11 @@
 
 class CampaignForm extends CFormModel
 {
+	public $form;
 	public $name;
 	public $venue;
 	public $startDate;
 	public $endDate;
-	public $remarks;
 	public $budget;
 	public $wizard;
 	public $tags;
@@ -17,7 +17,7 @@ class CampaignForm extends CFormModel
 	public function rules()
 	{
 		return array(
-			array('name, venue, startDate, budget', 'required'),
+			array('form, name, venue, startDate, budget', 'required'),
 			array('startDate, endDate', 'date'),
 			array('wizard, tags', 'safe'),
 		);
@@ -43,5 +43,16 @@ class CampaignForm extends CFormModel
 				'EventStatus' => 3,
 				),
 			));
+	}
+
+	public static function getSessionInstance($name)
+	{
+		if (Yii::app()->session[$name] instanceof CampaignForm)
+			$model = Yii::app()->session[$name];
+		else {
+			Yii::app()->session[$name] = new CampaignForm;
+			$model = Yii::app()->session[$name];
+		}
+		return $model;
 	}
 }

@@ -2,6 +2,7 @@
 
 class SiteController extends Controller
 {
+	public $pageTitle = 'Listo - Simple Segment';
 	/**
 	 * Declares class-based actions.
 	 */
@@ -111,33 +112,36 @@ class SiteController extends Controller
 
 	public function actionCampaign()
 	{
-		$list = Yii::app()->curl->get("http://listoprototype.apphb.com/ListoEvent.svc/GetEvents");
-		$list = json_decode($list, true);
+		$list = array();
+		try {
+			$list = Yii::app()->curl->get("http://listoprototype.apphb.com/ListoEvent.svc/GetEvents");
+			$list = json_decode($list, true);
+		} catch (Exception $e) {
+
+		}
 
 		$this->render('campaign', array('list'=>$list));
 	}
 
 	public function actionCreatecampaign()
 	{
-		if (Yii::app()->session['campaign'] instanceof CampaignForm)
-			$model = Yii::app()->session['campaign'];
-		else {
-			Yii::app()->session['campaign'] = new CampaignForm;
-			$model = Yii::app()->session['campaign'];
-		}
+		$model = CampaignForm::getSessionInstance('campaign');
 
 		if (!isset($_GET['step'])) {
 			$this->render('createcampaign', array('model'=>$model));
 		} else if ($_GET['step'] == '2') {
 			$model->attributes = $_POST['CampaignForm'];
-			$this->render('step2');
+			$this->render('step2', array('model'=>$model));
 		} else if ($_GET['step'] == '3') {
 			$model->wizard = $_POST['wizard'];
 			$this->render('step3');
 		} else if ($_GET['step'] == '4') {
 			$model->tags = $_POST['tags'];
 			$url = "http://listoprototype.apphb.com/ListoEvent.svc/CreateEvent";
-			Yii::app()->curl->post($url, $model->apphbPostData());
+			try {
+				Yii::app()->curl->post($url, $model->apphbPostData());
+			} catch (Exception $e) {
+			}
 			$this->render('step4', array('model'=>$model));
 		}
 	}
