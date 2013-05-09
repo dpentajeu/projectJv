@@ -49,7 +49,22 @@ $cs->registerScript('tab', "
 				</div>
 			</div>
 			<div id="forms" class="hide">
-				something
+				<table>
+					<thead>
+						<tr>
+							<th>Form ID</th>
+							<th>Form Name</th>
+						</tr>
+					</thead>
+					<tbody>
+					<?php foreach ($form['Data'] as $f): ?>
+					<tr>
+						<td><?php echo $f['FormID']; ?></td>
+						<td><?php echo $f['FormName']; ?></td>
+					</tr>
+					<?php endforeach; ?>
+					</tbody>
+				</table>
 			</div>
 		</div>
 	</div>

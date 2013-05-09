@@ -114,15 +114,18 @@ class SiteController extends Controller
 	{
 		$event = array();
 		$form = array();
+		$model = CampaignForm::getSessionInstance('campaign');
 		try {
 			$event = Yii::app()->curl->get("http://listoprototype.apphb.com/ListoEvent.svc/GetEvents");
-			// $form = Yii::app()->curl->get("http://listoprototype.apphb.com/ListoEvent.svc/GetFormsByCompanyID");
+			$form = Yii::app()->curl->get("http://listoprototype.apphb.com/ListoForm.svc/GetFormsByCompanyID?CompanyID={$model->companyId}");
 			$event = json_decode($event, true);
+			$form = json_decode($form, true);
 		} catch (Exception $e) {
 			$event = array();
+			$form = array();
 		}
 
-		$this->render('campaign', array('list'=>$event));
+		$this->render('campaign', array('list'=>$event, 'form'=>$form));
 	}
 
 	public function actionCreatecampaign()
