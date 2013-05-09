@@ -136,9 +136,22 @@ class SiteController extends Controller
 		$this->render($page, $param);
 	}
 
-	public function actionResult()
+	public function actionResult($id)
 	{
-		$this->render('result');
+		$customer = array();
+		try {
+			$url = "http://listoprototype.apphb.com/ListoUser.svc/GetUsersByEventID?EventID={$id}";
+			$result = Yii::app()->curl->get($url);
+			$result = json_decode($result, true);
+
+			if (!isset($result['Data']))
+				throw new Exception;
+			
+			$customer = $result['Data'];
+		} catch (Exception $e) {
+			throw new CHttpException(500, "API call error");
+		}
+		$this->render('result', array('model'=>$customer));
 	}
 
 	public function actionFormgenerator($id)

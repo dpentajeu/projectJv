@@ -109,39 +109,27 @@ $cs->registerScript('',"
 		<table>
 			<thead>
 				<tr>
-					<th>Name</th>
+					<th>User ID</th>
+					<th>First Name</th>
+					<th>Last Name</th>
 					<th>Email</th>
-					<th>Phone</th>
-					<th>DOB</th>
+					<th>Gender</th>
 					<th>Age</th>
-					<th>Address</th>
 				</tr>
 			</thead>
 			<tbody>
-				<tr>
-					<td>Jin Lim</td>
-					<td>jin@jin.com</td>
-					<td>60175225252</td>
-					<td>12/12/2012</td>
-					<td>15</td>
-					<td>7, Jln 123, Tmn Ipoh.</td>
-				</tr>
-				<tr>
-					<td>Jin Lim</td>
-					<td>jin@jin.com</td>
-					<td>60175225252</td>
-					<td>12/12/2012</td>
-					<td>15</td>
-					<td>7, Jln 123, Tmn Ipoh.</td>
-				</tr>
-				<tr>
-					<td>Jin Lim</td>
-					<td>jin@jin.com</td>
-					<td>60175225252</td>
-					<td>12/12/2012</td>
-					<td>15</td>
-					<td>7, Jln 123, Tmn Ipoh.</td>
-				</tr>
+				<?php
+				foreach ($model as $c) {
+					echo CHtml::openTag('tr');
+					echo CHtml::tag('td', array(), $c['UserID'], true);
+					echo CHtml::tag('td', array(), $c['FirstName'], true);
+					echo CHtml::tag('td', array(), $c['LastName'], true);
+					echo CHtml::tag('td', array(), $c['Email'], true);
+					echo CHtml::tag('td', array(), $c['Gender'], true);
+					echo CHtml::tag('td', array(), $c['Age'], true);
+					echo CHtml::closeTag('tr');
+				}
+				?>
 			</tbody>
 		</table>
 	</div>

@@ -33,7 +33,7 @@ $cs->registerScript('tab', "
 					<tbody>
 					<?php foreach ($list['Data'] as $campaign): ?>
 					<tr>
-						<td><?php echo CHtml::link($campaign['EventName'], array('/site/result')); ?></td>
+						<td><?php echo CHtml::link($campaign['EventName'], $this->createUrl('result', array('id'=>$campaign['EventID']))); ?></td>
 						<td><?php echo $campaign['EventVenue']; ?></td>
 						<td><?php echo $campaign['EventStart']; ?></td>
 						<td><?php echo $campaign['EventEnd']; ?></td>
