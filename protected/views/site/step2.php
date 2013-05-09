@@ -3,7 +3,14 @@ $cs = Yii::app()->getClientScript();
 $cs->registerPackage('form-wizard');
 $cs->registerScript('next', "
 	$('.buttons a').click(function() {
-		var input = $('<input />').attr('hidden', true).attr('name', 'wizard').val($('form').html());
+		var input = [],
+			formInput = [],
+			formType = [];
+
+		$('form span').each(function(i, o) { formInput.push($(o).html()); formType.push('Text'); });
+		input.push($('<input />').attr('hidden', true).attr('name', 'wizard').val($('form').html()));
+		input.push($('<input />').attr('hidden', true).attr('name', 'formInput').val(formInput.join('|')));
+		input.push($('<input />').attr('hidden', true).attr('name', 'formType').val(formType.join('|')));
 		$('form').append(input);
 		$('form').submit();
 	});

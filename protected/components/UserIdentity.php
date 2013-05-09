@@ -38,8 +38,16 @@ class UserIdentity extends CUserIdentity
 
 				if (!$data['Data'])
 					$this->errorCode=self::ERROR_USERNAME_INVALID;
-				else
+				else {
+					$model = CampaignForm::getSessionInstance('campaign');
+					if (!isset($data['Data']['CompanyID']))
+						throw new Exception("Data receive error");
+
+					$model->companyId = $data['Data']['CompanyID'];
+					$model->companyName = $data['Data']['CompanyName'];
+					$model->customerId = $data['Data']['CustomerID'];
 					$this->errorCode=self::ERROR_NONE;
+				}
 			} catch (Exception $e) {
 				throw new CHttpException($e->getMessage());
 			}

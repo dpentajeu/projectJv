@@ -2,6 +2,12 @@
 
 class CampaignForm extends CFormModel
 {
+	public $customerId;
+	public $companyId;
+	public $companyName;
+	public $formInput;
+	public $formType;
+	public $eventId;
 	public $form;
 	public $name;
 	public $venue;
@@ -17,9 +23,9 @@ class CampaignForm extends CFormModel
 	public function rules()
 	{
 		return array(
-			array('form, name, venue, startDate, budget', 'required'),
+			array('form, name, venue, startDate, endDate, budget', 'required'),
 			array('startDate, endDate', 'date'),
-			array('wizard, tags', 'safe'),
+			array('customerId, companyId, companyName, eventId, wizard, tags', 'safe'),
 		);
 	}
 
@@ -38,9 +44,13 @@ class CampaignForm extends CFormModel
 	{
 		return array(
 			'myEvent' => array(
+				'CustomerId' => $this->customerId,
+				'CompanyId' => $this->companyId,
 				'EventName' => $this->name,
 				'EventVenue' => $this->venue,
 				'EventStatus' => 3,
+				'EventStart' => date("dmY", strtotime($this->startDate)),
+				'EventEnd' => date("dmY", strtotime($this->endDate)),
 				),
 			);
 	}
@@ -50,9 +60,9 @@ class CampaignForm extends CFormModel
 		return array(
 			'myFormBuilder' => array(
 				'FormName' => $this->form,
-				'FormInput' => 'First Name|Last Name',
-				'FormInputType' => 'Text|Text',
-				'AuthorComID' => '0B4254C4-0BEF-4642-8CAB-CF9B51A6EFAC',
+				'FormInput' => $this->formInput,
+				'FormInputType' => $this->formType,
+				'AuthorComID' => $this->companyId,
 				),
 			);
 	}
@@ -63,7 +73,7 @@ class CampaignForm extends CFormModel
 		foreach ($this->tags as $t)
 			$tags[] = array('TagName' => $t);
 		return array(
-			'EventID' => '7',
+			'EventID' => $this->eventId,
 			'Tags' => $tags,
 			);
 	}
@@ -77,5 +87,70 @@ class CampaignForm extends CFormModel
 			$model = Yii::app()->session[$name];
 		}
 		return $model;
+	}
+
+	public function handleCreateCampaign()
+	{
+		$method = array(
+			'step2'=>array(
+				'method' => 'createEventData',
+				'fetch' => array(
+					'eventId' => 'EventID',
+					),
+				),
+			'step3'=>array(
+				'method' => 'createFormData',
+				'fetch' => array(),
+				),
+			'step4'=>array(
+				'method' => 'createTagsData',
+				'fetch' => array(),
+				),
+			);
+		if (!isset($_GET['step']))
+			return 'createcampaign';
+
+		try {
+			switch ($_GET['step']) {
+				case '2':
+					$this->attributes = $_POST['CampaignForm'];
+					$url = "http://listoprototype.apphb.com/ListoEvent.svc/CreateEvent";
+					break;
+
+				case '3':
+					$this->wizard = $_POST['wizard'];
+					$this->formInput = $_POST['formInput'];
+					$this->formType = $_POST['formType'];
+					$url = "http://listoprototype.apphb.com/ListoForm.svc/CreateForm";
+					break;
+
+				case '4':
+					$this->tags = $_POST['tags'];
+					$url = "http://listoprototype.apphb.com/ListoTag.svc/CreateTags";
+					break;
+
+				default:
+					throw new Exception("Page not found", 404);
+					break;
+			}
+			$page = "step{$_GET['step']}";
+			$post = call_user_func(array($this, $method[$page]['method']));
+			$curl = Yii::app()->curl;
+			$curl->setOption(CURLOPT_HTTPHEADER, array("Content-Type: application/json"));
+			$data = $curl->post($url, json_encode($post));
+			$data = json_decode($data, true);
+
+			if (!isset($data['Data']))
+				throw new Exception("API call fail.", 500);
+
+			foreach ($method[$page]['fetch'] as $key => $value)
+				$this->{$key} = $data['Data'][$value];
+		} catch (Exception $e) {
+			$err = $e->getErrorCode();
+			if (!in_array($err, array(404, 500)))
+				$err = 404;
+			throw new CHttpException($err, $e->getMessage());
+		}
+		return $page;
 	}
 }

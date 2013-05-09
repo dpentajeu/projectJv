@@ -128,45 +128,8 @@ class SiteController extends Controller
 	public function actionCreatecampaign()
 	{
 		$model = CampaignForm::getSessionInstance('campaign');
-		$page = 'createcampaign';
 		$param = array('model'=>$model);
-		$method = array(
-			'step2'=>'createEventData',
-			'step3'=>'createFormData',
-			'step4'=>'createTagsData',
-			);
-
-		if (isset($_GET['step'])) {
-			try {
-				switch ($_GET['step']) {
-					case '2':
-						$model->attributes = $_POST['CampaignForm'];
-						$url = "http://listoprototype.apphb.com/ListoEvent.svc/CreateEvent";
-						break;
-
-					case '3':
-						$model->wizard = $_POST['wizard'];
-						$url = "http://listoprototype.apphb.com/ListoForm.svc/CreateForm";
-						break;
-
-					case '4':
-						$model->tags = $_POST['tags'];
-						$url = "http://listoprototype.apphb.com/ListoTag.svc/CreateTags";
-						break;
-
-					default:
-						throw new Exception("Page not found", 404);
-						break;
-				}
-				$page = "step{$_GET['step']}";
-				$post = call_user_func_array(array($model, $method[$page]), array());
-				$curl = Yii::app()->curl;
-				$curl->setOption(CURLOPT_HTTPHEADER, array("Content-Type: application/json"));
-				$data = $curl->post($url, json_encode($post));
-			} catch (Exception $e) {
-				throw new CHttpException(404, $e->getMessage());
-			}
-		}
+		$page = $model->handleCreateCampaign();
 		$this->render($page, $param);
 	}
 
