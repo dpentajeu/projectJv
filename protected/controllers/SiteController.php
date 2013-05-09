@@ -140,4 +140,18 @@ class SiteController extends Controller
 	{
 		$this->render('result');
 	}
+
+	public function actionFormgenerator($id)
+	{
+		try {
+			$url = "http://listoprototype.apphb.com/ListoForm.svc/GenerateFormCode?EventID={$id}";
+			$result = Yii::app()->curl->get($url);
+			$result = json_decode($result, true);
+			if (!isset($result['Data']))
+				throw new Exception;
+			echo $result['Data'];
+		} catch (Exception $e) {
+			throw new CHttpException(500, "Service unavailable.");
+		}
+	}
 }

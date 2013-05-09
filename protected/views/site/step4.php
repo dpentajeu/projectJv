@@ -40,4 +40,8 @@ $cs->registerCss('tag-it', "
 		<a href="<?php echo $this->createUrl('site/campaign'); ?>" class="next">All Campaign</a>
 	</div>
 
+	<div class="row">
+		<iframe src="<?php echo $this->createUrl('formgenerator', array('id'=>$model->eventId)); ?>" style="width: 100%; height: 200px;"></iframe>
+	</div>
+
 </div>
