@@ -24,7 +24,7 @@ $cs->registerCss('tag-it', "
 
 	<p>
 		<div class="buttons">
-			<a href="javascript:void(0);">Complete</a>
+			<a href="javascript:void(0);" class="next">Next</a>
 		</div>
 	</p>
 </div>

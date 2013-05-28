@@ -78,6 +78,13 @@ $cs->registerScript('',"
 		chart.draw(data, options);
 	}
 </script>
+<script>
+$(document).ready(function(){
+  $("#graph").click(function(){
+    $("#example").toggle(500);
+  });
+});
+</script>
 
 <div class="grid_16">
 	<h1>Result</h1>
@@ -85,7 +92,8 @@ $cs->registerScript('',"
 	<div class="container">
 		<div class="span-2"></div>
 		<div class="span-20">
-			<div id="example">
+                <div class="buttons"><a href="#" class="next" id="graph">Show chart and map</a></div><br/>
+			<div id="example" hidden="true">
 				<ul class="nav">
 					<li class="nav-one"><a href="#pie" class="current">Chart</a></li>
 					<li class="nav-two"><a href="#line">Map</a></li>

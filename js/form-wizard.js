@@ -19,7 +19,7 @@ $(document).ready(function() {
 				html: [
 					{
 						type: 'span',
-						html: 'insert label name',
+						html: 'Edit Label',
 						class: 'form-label',
 						contenteditable: true,
 					},

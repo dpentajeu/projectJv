@@ -17,19 +17,23 @@ $cs->registerScript('next', "
 	");
 ?>
 <div class="container">
-<div class="span-12">
-	<h2><?php echo $model->form; ?></h2>
-	<form name='wizard' action="?step=3" style='background:#eee'></form>
-</div>
-
-<div class="span-12 wizard last">	
-	<h3>Form Wizard &nbsp&nbsp<img src="<?php echo Yii::app()->request->baseUrl; ?>/images/edit.png" width="32px" height="32px" alt=""></h3>
-	<div class="buttons">
+    <div class="span-8 wizard last">	
+	<!--<h3>Form Wizard &nbsp&nbsp<img src="<?php echo Yii::app()->request->baseUrl; ?>/images/edit.png" width="32px" height="32px" alt=""></h3> -->
+        <div class="buttons">
+                <br/><br/>
 		<button data-type="text">Text field</button>
+                <div>Ex: Name, Email</div>
 		<button data-type="number">Numeric field</button>
+                <div>Ex: Price, Age</div>
 		<button data-type="datepicker">Date field</button>
+                <div>Ex: Date</div>
 		<div style="height: 30px;"></div>
 		<a href="javascript:void(0);" class="next">Next</a>
 	</div>
-</div>
+    </div>
+    <div class="span-14">
+            <!--<h2><?php echo $model->form; ?></h2> -->
+            <h2>Create Form</h2>
+            <form name='wizard' action="?step=3" style='background:#eee'></form>
+    </div>
 </div>
