@@ -5,6 +5,7 @@ class CampaignForm extends CFormModel
 	public $customerId;
 	public $companyId;
 	public $companyName;
+	public $formId;
 	public $formInput;
 	public $formType;
 	public $eventId;
@@ -94,50 +95,42 @@ class CampaignForm extends CFormModel
 		$method = array(
 			'step2'=>array(
 				'method' => 'createEventData',
-				'fetch' => array(
-					'eventId' => 'EventID',
-					),
+				'fetch' => array('eventId' => 'EventID'),
+				'put' => array('attributes' => 'CampaignForm'),
+				'url' => 'http://listoprototype.apphb.com/ListoEvent.svc/CreateEvent',
 				),
 			'step3'=>array(
 				'method' => 'createFormData',
-				'fetch' => array(),
+				'fetch' => array('formId' => 'FormID'),
+				'put' => array('wizard', 'formInput', 'formType'),
+				'url' => 'http://listoprototype.apphb.com/ListoForm.svc/CreateForm',
 				),
 			'step4'=>array(
 				'method' => 'createTagsData',
 				'fetch' => array(),
+				'put' => array('tags'),
+				'url' => 'http://listoprototype.apphb.com/ListoTag.svc/CreateTags',
 				),
 			);
 		if (!isset($_GET['step']))
 			return 'createcampaign';
 
 		try {
-			switch ($_GET['step']) {
-				case '2':
-					$this->attributes = $_POST['CampaignForm'];
-					$url = "http://listoprototype.apphb.com/ListoEvent.svc/CreateEvent";
-					break;
-
-				case '3':
-					$this->wizard = $_POST['wizard'];
-					$this->formInput = $_POST['formInput'];
-					$this->formType = $_POST['formType'];
-					$url = "http://listoprototype.apphb.com/ListoForm.svc/CreateForm";
-					break;
-
-				case '4':
-					$this->tags = $_POST['tags'];
-					$url = "http://listoprototype.apphb.com/ListoTag.svc/CreateTags";
-					break;
-
-				default:
-					throw new Exception("Page not found", 404);
-					break;
-			}
+			// initialize
 			$page = "step{$_GET['step']}";
+			foreach ($method[$page]['put'] as $key => $value) {
+				if (is_numeric($key))
+					$this->{$value} = $_POST[$value];
+				else
+					$this->{$key} = $_POST[$value];
+			}
+
 			$post = call_user_func(array($this, $method[$page]['method']));
 			$curl = Yii::app()->curl;
 			$curl->setOption(CURLOPT_HTTPHEADER, array("Content-Type: application/json"));
-			$data = $curl->post($url, json_encode($post));
+			$data = $curl->post($method[$page]['url'], json_encode($post));
+			if ($curl->getInfo(CURLINFO_HTTP_CODE) != 200)
+				throw new Exception("API call fail.", $curl->getInfo(CURLINFO_HTTP_CODE));
 			$data = json_decode($data, true);
 
 			if (!isset($data['Data']))
@@ -146,7 +139,7 @@ class CampaignForm extends CFormModel
 			foreach ($method[$page]['fetch'] as $key => $value)
 				$this->{$key} = $data['Data'][$value];
 		} catch (Exception $e) {
-			$err = $e->getErrorCode();
+			$err = $e->getCode();
 			if (!in_array($err, array(404, 500)))
 				$err = 404;
 			throw new CHttpException($err, $e->getMessage());
