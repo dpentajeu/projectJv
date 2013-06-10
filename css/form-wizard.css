@@ -1,5 +1,11 @@
+.ui-dform-container:hover {
+	border: 1px dashed black;
+}
+
 form .row {
-	margin: 5px;
+	margin: 2px;
+	display: block;
+	border: 1px solid rgba(0, 0, 0, 0);
 }
 
 	form .row input {
@@ -11,8 +17,15 @@ form .row {
 		margin-right: 10px;
 		padding: 5px;
 		color: black;
-		border: 1px dashed gray;
-		display: inline-block;
-		width: 200px;
-		text-align: right;
+		text-align: left;
+		font-weight: bold;
+	}
+
+	form .row span:hover {
+		cursor: pointer;
+	}
+
+	form .row span:focus {
+		background-color: white;
+		box-shadow: inset 1px 1px 4px black;
 	}

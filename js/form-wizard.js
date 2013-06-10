@@ -7,7 +7,7 @@ $(document).ready(function() {
 		var btn = $(element).find('button');
 		btn.click(function(e) {
 			type = $(this).data().type;
-			obj = { type: type };
+			obj = { type: type, class: 'row' };
 			if (type === 'datepicker') {
 				obj.type = 'text';
 				obj.datepicker = {};
@@ -19,8 +19,8 @@ $(document).ready(function() {
 				html: [
 					{
 						type: 'span',
-						html: 'Edit Label',
-						class: 'form-label',
+						html: 'Click here to edit text',
+						class: 'form-label row',
 						contenteditable: true,
 					},
 					obj,
