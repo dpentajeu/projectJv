@@ -126,6 +126,12 @@ class SiteController extends Controller
 				throw new Exception("apphb API call error", 500);
 			$event = json_decode($event, true);
 			$form = json_decode($form, true);
+			// $dataProvider = new CArrayDataProvider($event['Data'], array(
+			// 	'pagination'=>array(
+			// 		'pageSize'=>10,
+			// 		),
+			// 	));
+			// Yii::trace(var_export($dataProvider, true), 'application.controllers.SiteController');
 		} catch (Exception $e) {
 			$event = array();
 			$form = array();
@@ -148,17 +154,20 @@ class SiteController extends Controller
 	{
 		$customer = array();
 		try {
-			$url = "http://listoprototype.apphb.com/ListoUser.svc/GetUsersByEventID?EventID={$id}";
-			$result = Yii::app()->curl->get($url);
+			$url = array(
+				'event'=>"http://listoprototype.apphb.com/ListoUser.svc/GetUsersByEventID?EventID={$id}",
+				'tag' => "http://listoprototype.apphb.com/ListoTag.svc/GetTagsByEventID?EventID={$id}",
+				);
+			$event = Yii::app()->curl->get($url['event']);
+			if (Yii::app()->curl->getInfo(CURLINFO_HTTP_CODE) != 200)
+				throw new Exception;
+			$tag = Yii::app()->curl->get($url['tag']);
 			if (Yii::app()->curl->getInfo(CURLINFO_HTTP_CODE) != 200)
 				throw new Exception;
 
-			$result = json_decode($result, true);
-
-			if (!isset($result['Data']))
-				throw new Exception;
-
-			$customer = $result['Data'];
+			$event = json_decode($event, true);
+			$tag = json_decode($tag, true);
+			$customer = array('event'=>$event['Data'], 'tag'=>$tag['Data']);
 		} catch (Exception $e) {
 			throw new CHttpException(500, "apphb API call error");
 		}

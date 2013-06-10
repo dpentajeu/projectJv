@@ -20,6 +20,15 @@ $cs->registerScript('tab', "
 		</ul>
 		<div class="list-wrap">
 			<div id="event">
+				<?php 
+				// $this->widget('zii.widgets.grid.CGridView', array(
+				// 	'dataProvider'=>$dataProvider,
+				// 	'template'=>"{items}{pager}",
+				// 	'pager'=>array('header'=>''),
+				// 	'columns'=>array(
+				// 		array('name'=>'EventName', 'header'=>'Event Name'),
+				// 		),
+				// 	)); ?>
 				<table>
 					<thead>
 						<tr>

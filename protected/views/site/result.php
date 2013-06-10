@@ -8,6 +8,12 @@ $this->breadcrumbs=array(
 $cs = Yii::app()->getClientScript();
 $baseUrl = Yii::app()->request->baseUrl;
 $cs->registerPackage('organic-tab');
+$cs->registerPackage('tag-it');
+$cs->registerScript('tag-it', "
+	$(document).ready(function() {
+		$('#tags').tagit({ fieldName: 'tags[]', allowSpaces: true, readOnly: true });
+	});
+	");
 $cs->registerScriptFile("https://www.google.com/jsapi");
 $cs->registerScript('',"
 	$('#example').organicTabs();
@@ -114,6 +120,13 @@ $(document).ready(function(){
 	</div>
 
 	<div class="container">
+		<?php if (!empty($model['tag'])): ?>
+		<h3>Event Tags</h3>
+		<ul id="tags">
+			<?php foreach ($model['tag'] as $tag) echo CHtml::tag('li', array(), $tag['Tags']['TagName']); ?>
+		</ul>
+		<?php endif; ?>
+		<h3>Event Users</h3>
 		<table>
 			<thead>
 				<tr>
@@ -127,15 +140,21 @@ $(document).ready(function(){
 			</thead>
 			<tbody>
 				<?php
-				foreach ($model as $c) {
+				if (empty($model['event'])) {
 					echo CHtml::openTag('tr');
-					echo CHtml::tag('td', array(), $c['UserID'], true);
-					echo CHtml::tag('td', array(), $c['FirstName'], true);
-					echo CHtml::tag('td', array(), $c['LastName'], true);
-					echo CHtml::tag('td', array(), $c['Email'], true);
-					echo CHtml::tag('td', array(), $c['Gender'], true);
-					echo CHtml::tag('td', array(), $c['Age'], true);
+					echo CHtml::tag('td', array('colspan'=>6, 'style'=>'text-align: center;border:1px solid black;'), "No user found.");
 					echo CHtml::closeTag('tr');
+				} else {
+					foreach ($model['event'] as $c) {
+						echo CHtml::openTag('tr');
+						echo CHtml::tag('td', array(), $c['UserID'], true);
+						echo CHtml::tag('td', array(), $c['FirstName'], true);
+						echo CHtml::tag('td', array(), $c['LastName'], true);
+						echo CHtml::tag('td', array(), $c['Email'], true);
+						echo CHtml::tag('td', array(), $c['Gender'], true);
+						echo CHtml::tag('td', array(), $c['Age'], true);
+						echo CHtml::closeTag('tr');
+					}
 				}
 				?>
 			</tbody>
