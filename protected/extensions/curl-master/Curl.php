@@ -100,4 +100,14 @@ class Curl extends CComponent {
         }
     }
 
+    public function getInfo($param = NULL)
+    {
+        try {
+            if (empty($param))
+                $param = CURLINFO_CONTENT_TYPE;
+            return curl_getinfo($this->_ch, $param);
+        } catch (Exception $e) {
+            throw new CException('Curl not installed');
+        }
+    }
 }
