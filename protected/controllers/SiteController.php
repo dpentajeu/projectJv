@@ -116,13 +116,21 @@ class SiteController extends Controller
 		$form = array();
 		$model = CampaignForm::getSessionInstance('campaign');
 		try {
-			$event = Yii::app()->curl->get("http://listoprototype.apphb.com/ListoEvent.svc/GetEvents");
-			$form = Yii::app()->curl->get("http://listoprototype.apphb.com/ListoForm.svc/GetFormsByCompanyID?CompanyID={$model->companyId}");
+			$url = array(
+				'event' => "http://listoprototype.apphb.com/ListoEvent.svc/GetEvents",
+				'form' => "http://listoprototype.apphb.com/ListoForm.svc/GetFormsByCompanyID?CompanyID={$model->companyId}",
+				);
+			$event = Yii::app()->curl->get($url['event']);
+			$form = Yii::app()->curl->get($url['form']);
+			if (Yii::app()->curl->getInfo(CURLINFO_HTTP_CODE) != 200)
+				throw new Exception("apphb API call error", 500);
 			$event = json_decode($event, true);
 			$form = json_decode($form, true);
 		} catch (Exception $e) {
 			$event = array();
 			$form = array();
+			if ($e->getCode() == 500)
+				throw new CHttpException(500, $e->getMessage());
 		}
 
 		$this->render('campaign', array('list'=>$event, 'form'=>$form));
@@ -142,14 +150,17 @@ class SiteController extends Controller
 		try {
 			$url = "http://listoprototype.apphb.com/ListoUser.svc/GetUsersByEventID?EventID={$id}";
 			$result = Yii::app()->curl->get($url);
+			if (Yii::app()->curl->getInfo(CURLINFO_HTTP_CODE) != 200)
+				throw new Exception;
+
 			$result = json_decode($result, true);
 
 			if (!isset($result['Data']))
 				throw new Exception;
-			
+
 			$customer = $result['Data'];
 		} catch (Exception $e) {
-			throw new CHttpException(500, "API call error");
+			throw new CHttpException(500, "apphb API call error");
 		}
 		$this->render('result', array('model'=>$customer));
 	}
@@ -157,14 +168,24 @@ class SiteController extends Controller
 	public function actionFormgenerator($id)
 	{
 		try {
-			$url = "http://listoprototype.apphb.com/ListoForm.svc/GenerateFormCode?EventID={$id}";
+			if (!isset($_GET['f_id']))
+				throw new Exception("Invalid request.", 400);
+			$url = "http://listoprototype.apphb.com/ListoForm.svc/GenerateFormCode?EventID={$id}&FormID={$_GET['f_id']}";
 			$result = Yii::app()->curl->get($url);
 			$result = json_decode($result, true);
-			if (!isset($result['Data']))
-				throw new Exception;
+
+			if (Yii::app()->curl->getInfo(CURLINFO_HTTP_CODE) != 200)
+				throw new Exception("apphb API call error", Yii::app()->curl->getInfo(CURLINFO_HTTP_CODE));
+
+			if (isset($_GET['download'])) {
+				header("content-type: application/octet-stream");
+				header("content-disposition: attachment; filename='form.html'");
+				header("content-length: ".strlen($result['Data']));
+			}
+
 			echo $result['Data'];
 		} catch (Exception $e) {
-			throw new CHttpException(500, "Service unavailable.");
+			throw new CHttpException($e->getCode(), $e->getMessage());
 		}
 	}
 }

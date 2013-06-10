@@ -11,7 +11,7 @@ $cs->registerScript('tag-it', "
 	$('#tags').tagit();
 	");
 $cs->registerScript('iframe', "
-	var url = '{$this->createUrl('formgenerator', array('id'=>$model->eventId))}';
+	var url = '{$this->createUrl('formgenerator', array('id'=>$model->eventId, 'f_id'=>$model->formId))}';
 	$.get(url, function(result) {
 		$('#holdtext').text(result);
 	});
@@ -61,7 +61,8 @@ $cs->registerCss('tag-it', "
 			</div><!-- .summary -->
 			<div id="html" class="hide">
 				<label>Embed code to your website:</label><br/>
-				<textarea id="holdtext" style="width: 50%; height: 100px;"></textarea><br/>
+				<textarea id="holdtext" style="width: 50%; height: 350px;"></textarea><br/>
+				<div class="buttons"><a href="<?php echo $this->createUrl('site/formgenerator', array('id'=>$model->eventId, 'f_id'=>$model->formId, 'download'=>'true')); ?>" class="next">Save as</a></div>
 			</div><!-- #html -->
 		</div><!-- .list-wrap -->
 	</div><!-- #example-two -->
